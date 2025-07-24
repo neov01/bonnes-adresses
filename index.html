@@ -1,33 +1,38 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mon Carnet de Bonnes Adresses</title>
+    <title>Mes Bonnes Adresses</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        #map { height: 300px; }
+        body { font-family: sans-serif; font-size: 14px; margin: 1em; }
+        form input, form select, form textarea { display: block; margin-bottom: 0.5em; width: 100%%; }
+        ul { padding-left: 0; list-style: none; }
+        li { margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc; }
+        button { margin-top: 0.3em; margin-right: 0.3em; }
+    </style>
 </head>
 <body>
-    <h1>🌍 Mes Bonnes Adresses</h1>
-
+    <h1>Mes Bonnes Adresses 🍽️📍</h1>
+    <div id="map"></div>
+    <button id="locateBtn">📍 Ma position</button>
     <form id="placeForm">
         <input type="text" id="name" placeholder="Nom du lieu" required>
-        <input type="text" id="type" placeholder="Type (ex: Resto, Bar)" required>
-        <input type="text" id="comment" placeholder="Commentaire">
-        <select id="rating">
-            <option value="1">⭐</option>
-            <option value="2">⭐⭐</option>
-            <option value="3">⭐⭐⭐</option>
-            <option value="4">⭐⭐⭐⭐</option>
-            <option value="5">⭐⭐⭐⭐⭐</option>
+        <select id="type">
+            <option value="restaurant">Restaurant</option>
+            <option value="bar">Bar</option>
+            <option value="divertissement">Divertissement</option>
         </select>
-        <button type="submit">Ajouter</button>
+        <textarea id="comment" placeholder="Commentaire"></textarea>
+        <input type="number" id="rating" placeholder="Note (1-5)" min="1" max="5">
+        <button type="submit">Ajouter ou Modifier</button>
     </form>
-
-    <div id="map"></div>
     <ul id="placesList"></ul>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
